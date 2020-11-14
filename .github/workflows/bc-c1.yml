@@ -23,8 +23,9 @@ jobs:
       uses: actions/setup-node@v2-beta
       with:
         node-version: 12
-        
+
     - name: Install Surge
-	run: npm install --global surge
-    - name: Deploying Using Surge
-	run: surge ./ bc-c1.surge.sh -- token ${{secrets.SURGE_TOKEN}}
+      run: npm install -global surge
+
+    - name: Deploy to surge
+      run: surge ./ bc-c1.surge.sh/ --token ${{ secrets.SURGE_TOKEN }} 
